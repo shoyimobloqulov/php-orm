@@ -1,0 +1,27 @@
+{
+  "name": "shoyim/php-orm",
+  "description": "A simple PHP class to access your MySQL records.",
+  "keywords": [
+    "orm",
+    "mysql",
+    "php",
+    "pdo"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Shoyim Obloqulov",
+      "email": "obloqulovshoyim1@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Shoyim\\ORM\\" : "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {
+  }
+}
