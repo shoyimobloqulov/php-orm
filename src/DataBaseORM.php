@@ -9,22 +9,22 @@
         private $user;
         private $pass;
         private $dbname;
-        private $pdo;
+        private $conn;
 
         public function __construct($host, $user, $pass, $dbname) {
             $this->host = $host;
             $this->user = $user;
             $this->pass = $pass;
             $this->dbname = $dbname;
+
+
         }
         public function connect() {
-            $dsn = "mysql:host=$this->host;dbname=$this->dbname";
-            $this->pdo = new PDO($dsn, $this->user, $this->pass);
-        }
-        public function query($sql, $params = []) {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute($params);
-            return $stmt;
+            $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->dbname);
+
+            if (!$this->conn) {
+                die("Mysql connection error: ".mysqli_connect_error());
+            }
         }
 
 
