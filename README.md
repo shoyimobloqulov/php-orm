@@ -6,3 +6,6 @@
     <a href="https://packagist.org/packages/shoyim/php-orm"><img src="https://img.shields.io/packagist/l/shoyimobloqulov/php-orm" alt="License"></a>
     <a href="https://phpstan.org/"><img src="https://img.shields.io/badge/PHPStan-level%206-brightgreen.svg?style=flat" alt="PHPStan"></a>
 </p>
+
+### Installing
+<code>composer require shoyim/php-orm</code>
