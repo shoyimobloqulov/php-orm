@@ -27,5 +27,12 @@
             }
         }
 
-
+        public function query($query)
+        {
+            return mysqli_query($this->conn, $query);
+        }
+        
+        public function disconnect() {
+            mysqli_close($this->conn);
+        }
     }
