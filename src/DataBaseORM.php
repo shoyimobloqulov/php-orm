@@ -1,6 +1,7 @@
 <?php
     namespace Shoyim\ORM;
 
+    use Exception;
     use PDO;
 
     abstract class DataBaseORM
@@ -16,14 +17,88 @@
             $this->user = $user;
             $this->pass = $pass;
             $this->dbname = $dbname;
-
-
         }
         public function connect() {
             $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->dbname);
 
             if (!$this->conn) {
                 die("Mysql connection error: ".mysqli_connect_error());
+            }
+        }
+
+        public function getData($table, $wheres = [],$columns=[])
+        {
+            try {
+                $sql = "SELECT " . implode(',', $columns);
+
+                $sql .= " FROM $table WHERE ";
+
+                foreach ($wheres as $where) {
+                    $sql = $where["column"]."=".$where["value"];
+                    if (isset($where["condition"])) {
+                        $sql .= " ".$where["condition"]. " ";
+                    }
+                }
+
+                return mysqli_query($this->conn, $sql);
+            }
+            catch (Exception $e) {
+                return $e->getMessage();
+            }
+        }
+
+        public function insert($table, $columns)
+        {
+            try {
+                $keys = array_keys($columns);
+                $values = array_values($columns);
+                $sql = "INSERT INTO $table (".implode(',', $keys).") VALUES (".implode(',', $values).")";
+
+                return mysqli_query($this->conn, $sql);
+            }
+            catch (Exception $e) {
+                return $e->getMessage();
+            }
+        }
+
+        public function update($table,$wheres = [],$columns=[])
+        {
+            try {
+                $sql = "UPDATE $table SET ";
+                foreach ($columns as $column => $value) {
+                    $sql = $column."=".$value. ",";
+                }
+                foreach ($wheres as $where) {
+                    $sql = $where["column"]."=".$where["value"];
+                }
+                return mysqli_query($this->conn, $sql);
+            }
+            catch (Exception $e) {
+                return $e->getMessage();
+            }
+        }
+
+        public function delete($table,$wheres = [],$columns=[]) {
+            try {
+                $sql = "DELETE FROM $table WHERE ";
+                foreach ($wheres as $where) {
+                    $sql = $where["column"]."=".$where["value"]. " " . $where["condition"]. " ";
+                }
+                return mysqli_query($this->conn, $sql);
+            }
+            catch (Exception $e) {
+                return $e->getMessage();
+            }
+        }
+
+        public function find($table,$id)
+        {
+            try {
+                $sql = "SELECT * FROM $table WHERE id=".$id;
+                return mysqli_query($this->conn, $sql);
+            }
+            catch (Exception $e) {
+                echo $e->getMessage();
             }
         }
 

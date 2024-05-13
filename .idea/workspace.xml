@@ -49,6 +49,12 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo",
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -67,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715586393798</updated>
-      <workItem from="1715586394809" duration="1972000" />
+      <workItem from="1715586394809" duration="3950000" />
     </task>
     <servers />
   </component>
