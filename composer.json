@@ -22,7 +22,8 @@
   "require": {
     "php": ">=8.1",
     "ext-mysqli": "*",
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "ext-json": "*"
   },
   "require-dev": {
   }

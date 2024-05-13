@@ -26,7 +26,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\OSPanel\modules\php\PHP_8.1\php.exe" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\OSPanel\modules\php\PHP_8.1\php.exe">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7
 }]]></component>
@@ -63,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715586393798</updated>
-      <workItem from="1715586394809" duration="1693000" />
+      <workItem from="1715586394809" duration="1972000" />
     </task>
     <servers />
   </component>
